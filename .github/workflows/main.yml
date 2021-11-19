@@ -2,7 +2,7 @@ name: "Build Mediquince IOS App"
 
 on:
   push:
-    tags: v2.*
+    tags: v0.*
 
 jobs:
 
