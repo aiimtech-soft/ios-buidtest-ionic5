@@ -30,8 +30,8 @@ jobs:
         
       - name: Add platform
         working-directory: ./
-        run: cordova platform add ios
+        run: ionic cordova platform add ios
       
       - name: Build app
         working-directory: ./
-        run: cordova build ios
+        run: ionic cordova build ios
