@@ -47,5 +47,5 @@ jobs:
       - name: Upload to Diawi
         uses: rnkdsh/action-upload-diawi@v1.2.1
         with:
-        token: tdQcfLBx7oD1tUCQDdHA5jYT6BToTJNIHEdkAO0t1T
-        file: ./build.zip
+          token: tdQcfLBx7oD1tUCQDdHA5jYT6BToTJNIHEdkAO0t1T
+          file: ./build.zip
