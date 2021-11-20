@@ -22,11 +22,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
-      - name: Install Cordova
-        run: npm install -g cordova
+      - name: Install Cordova, Cordova-res
+        run: npm install -g cordova cordova-res
 
-      - name: Install Ionic
-        run: npm install -g @ionic/cli
+      - name: Install Ionic, Angular CLI
+        run: npm install -g @ionic/cli @angular/cli
         
       - name: Add platform
         working-directory: ./
