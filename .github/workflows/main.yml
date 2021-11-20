@@ -37,10 +37,16 @@ jobs:
       
       - name: Build app
         working-directory: ./
-        run: ionic cordova build ios
+        run: ionic cordova build ios --device -- --developmentTeam="Kodee P"
 
       - name: check build folder
         working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms
         run: |
           tar -czvf ios.tar.gz -C ./ios .
           ls -a
+        
+      - name: Upload to Diawi        
+        uses: rnkdsh/action-upload-diawi@v1.2.1
+        with:
+          token: tdQcfLBx7oD1tUCQDdHA5jYT6BToTJNIHEdkAO0t1T
+          file: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios.tar.gz
