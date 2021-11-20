@@ -39,10 +39,10 @@ jobs:
       - name: check build folder
         working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios
         run: |
-        ls -a
-        sudo apt-get update
-        sudo apt-get install zip
-        zip -r build.zip build
+          ls -a
+          sudo apt-get update
+          sudo apt-get install zip
+          zip -r build.zip build
 
       - name: Upload to Diawi
         uses: rnkdsh/action-upload-diawi@v1.2.1
