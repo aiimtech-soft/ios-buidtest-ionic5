@@ -34,13 +34,13 @@ jobs:
       
       - name: Build app
         working-directory: ./
-        run: ionic cordova build ios --verbose
+        run: ionic cordova build ios
 
       - name: check build folder
-        working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/build
+        working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios
         run: |
           ls -a
-          tar -czvf build.tar.gz -C build .
+          tar -czvf build.tar.gz -C ./build .
         
       - name: Upload to Diawi
         uses: rnkdsh/action-upload-diawi@v1.2.1
