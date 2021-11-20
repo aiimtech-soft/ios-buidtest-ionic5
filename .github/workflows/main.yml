@@ -37,7 +37,7 @@ jobs:
       
       - name: Build app
         working-directory: ./
-        run: ionic cordova build ios
+        run: ionic cordova build ios --device
 
       - name: check build folder
         working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios
