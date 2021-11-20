@@ -28,7 +28,14 @@ jobs:
         
       - name: Add platform
         run: ionic cordova platform add ios
-      
+
+      - name: Checking Cocoapods
+        run: pod --version
+
+      - name: Checking Cocoapods
+        working-directory: ./platforms/ios/
+        run: pod install
+            
       - name: Build app
         working-directory: ./
         run: ionic cordova build ios --verbose
