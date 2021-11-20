@@ -28,14 +28,10 @@ jobs:
         
       - name: Add platform
         run: ionic cordova platform add ios
-
-      - name: Checking Cocoapods
-        run: pod --version
-
-      - name: Checking Cocoapods
-        working-directory: ./platforms/ios/
-        run: pod install
-            
+      
+      - name: satisfying Dependeny
+        run: npm -i @angular-devkit/architect
+      
       - name: Build app
         working-directory: ./
         run: ionic cordova build ios --verbose
