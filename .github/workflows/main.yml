@@ -44,6 +44,7 @@ jobs:
         
       - name: Upload to Diawi
         uses: rnkdsh/action-upload-diawi@v1.2.1
+        working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios
         with:
           token: tdQcfLBx7oD1tUCQDdHA5jYT6BToTJNIHEdkAO0t1T
           file: ./build.tar.gz
