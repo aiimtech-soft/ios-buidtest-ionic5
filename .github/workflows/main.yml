@@ -30,7 +30,7 @@ jobs:
         run: ionic cordova platform add ios
       
       - name: satisfying Dependeny
-        run: npm -i @angular-devkit/architect
+        run: npm i @angular-devkit/architect
       
       - name: Build app
         working-directory: ./
