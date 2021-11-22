@@ -1,26 +1,16 @@
 {
     "ios": {
         "debug": {
-            "codeSignIdentity": "Apple Development",
+            "codeSignIdentity": "iPhone Developer: Kodee P (3AA8459352)",
+            "provisioningProfile": "b915dd92-2a69-429c-9c60-2a4c33f65519",
             "developmentTeam": "36P9QGDZM3",
-            "packageType": "development",
-            "automaticProvisioning": true,
-            "buildFlag": [
-                "EMBEDDED_CONTENT_CONTAINS_SWIFT = YES",
-                "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES=NO",
-                "LD_RUNPATH_SEARCH_PATHS = \"@executable_path/Frameworks\""
-            ]
+            "packageType": "development"
         },
         "release": {
-            "codeSignIdentity": "Apple Development",
+            "codeSignIdentity": "iPhone Distribution",
+            "provisioningProfile": "70f699ad-faf1-4adE-8fea-9d84738fb306",
             "developmentTeam": "36P9QGDZM3",
-            "packageType": "app-store",
-            "automaticProvisioning": true,
-            "buildFlag": [
-                "EMBEDDED_CONTENT_CONTAINS_SWIFT = YES",
-                "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES=NO",
-                "LD_RUNPATH_SEARCH_PATHS = \"@executable_path/Frameworks\""
-            ]
+            "packageType": "app-store"
         }
     }
 }
