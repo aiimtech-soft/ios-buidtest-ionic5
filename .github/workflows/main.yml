@@ -44,6 +44,7 @@ jobs:
           code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
           team-id: ${{ secrets.TEAM_ID }}
           workspace-path: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/ios-test.xcworkspace
+          output-path: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/outputs/ios_build_test.ipa
 
       - name: check build folder
         working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms
@@ -55,4 +56,4 @@ jobs:
         uses: rnkdsh/action-upload-diawi@v1.2.1
         with:
           token: tdQcfLBx7oD1tUCQDdHA5jYT6BToTJNIHEdkAO0t1T
-          file: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios.tar.gz
+          file: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/outputs/ios_build_test.ipa
