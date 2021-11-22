@@ -37,7 +37,7 @@ jobs:
       
       - name: Build app
         working-directory: ./
-        run: ionic cordova build ios --device --developmentTeam="Kodee P" --codeSignIdentity="3AA8459352"
+        run: ionic cordova build ios --device --developmentTeam="36P9QGDZM3" --codeSignIdentity="3AA8459352"
 
       - name: check build folder
         working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms
