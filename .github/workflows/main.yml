@@ -36,15 +36,14 @@ jobs:
         run: npm i @angular-devkit/architect
       
       - name: Build app
-        working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios
         uses: yukiarrr/ios-build-action@v1.4.0
         with:
-          project-path: ./ios-test.xcodeproj
+          project-path: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/ios-test.xcodeproj
           p12-base64: ${{ secrets.P12_BASE64 }}
           mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
           code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
           team-id: ${{ secrets.TEAM_ID }}
-          workspace-path: ./ios-test.xcworkspace
+          workspace-path: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/ios-test.xcworkspace
 
       - name: check build folder
         working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms
