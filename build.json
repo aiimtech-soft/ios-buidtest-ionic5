@@ -1,7 +1,7 @@
 {
     "ios": {
         "debug": {
-            "codeSignIdentity": "Apple Development: Kodee P (3AA8459352)",
+            "codeSignIdentity": "31194D1C1CBFEAF46C1E86D223C44F2369F96215",
             "provisioningProfile": "4d45f81a-a1e1-41f3-8ce7-775e984efb5b",
             "developmentTeam": "36P9QGDZM3",
             "packageType": "development"
