@@ -1,15 +1,15 @@
 {
     "ios": {
         "debug": {
+            "developmentTeam": "36P9QGDZM3",
             "codeSignIdentity": "Apple Development: Kodee P (3AA8459352)",
             "provisioningProfile": "be0af605-dc1a-43d9-807e-c379f9960536",
-            "developmentTeam": "36P9QGDZM3",
             "packageType": "development"
         },
         "release": {
+            "developmentTeam": "36P9QGDZM3",
             "codeSignIdentity": "Apple Distribution: Kodee P (36P9QGDZM3)",
             "provisioningProfile": "be0af605-dc1a-43d9-807e-c379f9960536",
-            "developmentTeam": "36P9QGDZM3",
             "packageType": "app-store"
         }
     }
