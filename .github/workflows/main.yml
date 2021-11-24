@@ -38,8 +38,8 @@ jobs:
       - name: Set environment variables from project settings
         working-directory: /Users/apple/Documents/ios_workflow/ios-buidtest-ionic5/
         run: |
-          exec .github/scripts/set-env-from-xcodeproj.sh
           ls -al ./
+          exec .github/scripts/set-env-from-xcodeproj.sh
 
       - name: Import signing certificate
         env:
