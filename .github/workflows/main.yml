@@ -36,6 +36,7 @@ jobs:
         run: npm i @angular-devkit/architect
 
       - name: Set environment variables from project settings
+        working-directory: ./platforms/ios
         run: |
           exec .github/scripts/set-env-from-xcodeproj.sh
 
