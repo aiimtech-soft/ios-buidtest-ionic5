@@ -32,14 +32,6 @@ jobs:
       - name: Add platform
         run: ionic cordova platform add ios
       
-      - name: satisfying Dependeny
-        run: npm i @angular-devkit/architect
-
-      - name: Set environment variables from project settings
-        working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/
-        run: |
-          exec .github/scripts/set-env-from-xcodeproj.sh
-
       - name: Import signing certificate
         env:
           SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
@@ -52,6 +44,15 @@ jobs:
           PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_DATA }}
         run: |
           exec .github/scripts/import-profile.sh
+        
+      -name: Copy Scripts
+        run: |
+          cp -R .github/scripts/set-env-from-xcodeproj.sh /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/
+
+      - name: Set environment variables from project settings
+        working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/
+        run: |
+          exec ./set-env-from-xcodeproj.sh
   
       - name: Build app
         run: |
