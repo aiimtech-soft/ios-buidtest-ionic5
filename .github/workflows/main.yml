@@ -36,10 +36,9 @@ jobs:
         run: npm i @angular-devkit/architect
 
       - name: Set environment variables from project settings
-        working-directory: /Users/apple/Documents/ios_workflow/ios-buidtest-ionic5/
+        working-directory: /Users/apple/Documents/ios_workflow/ios-buidtest-ionic5
         run: |
-          ls -al ./
-          exec .github/scripts/set-env-from-xcodeproj.sh
+          exec ./.github/scripts/set-env-from-xcodeproj.sh
 
       - name: Import signing certificate
         env:
