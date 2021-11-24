@@ -37,6 +37,7 @@ jobs:
 
       - name: Set environment variables from project settings
         working-directory: /Users/apple/Documents/ios_workflow/ios-buidtest-ionic5/
+        ls -al ./
         run: |
           exec .github/scripts/set-env-from-xcodeproj.sh
 
