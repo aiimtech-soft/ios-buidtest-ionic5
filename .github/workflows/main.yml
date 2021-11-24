@@ -36,9 +36,9 @@ jobs:
         run: npm i @angular-devkit/architect
 
       - name: Set environment variables from project settings
-        run: 
-          shell: bash
-          working-directory: scripts
+        shell: bash
+        working-directory: ./
+        run: |
           exec .github/scripts/set-env-from-xcodeproj.sh
 
       - name: Import signing certificate
