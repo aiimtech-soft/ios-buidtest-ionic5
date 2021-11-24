@@ -27,7 +27,9 @@ jobs:
           node-version: 14
         
       - name: Install Cordova, Cordova-res, Ionic CLI
-        run: npm install -g cordova cordova-res @ionic/cli
+        run: |
+          node -v
+          npm install -g cordova cordova-res @ionic/cli
         
       - name: Add platform
         run: ionic cordova platform add ios
@@ -39,6 +41,7 @@ jobs:
           SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
         run: |
           exec .github/scripts/import-certificate.sh
+          echo ${{ env.PROJECT_PATH }}
 
       - name: Import provisioning profile
         env:
@@ -47,13 +50,12 @@ jobs:
           exec .github/scripts/import-profile.sh
         
       - name: Copy Scripts
-        run: |
-          cp -R .github/scripts/set-env-from-xcodeproj.sh /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/
+        run: cp .github/scripts/set-env-from-xcodeproj.sh /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/
 
       - name: Set environment variables from project settings
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-        working-directory: ${{ env.PROJECT_PATH }}
+        working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/
         run: |
           exec ./set-env-from-xcodeproj.sh
   
