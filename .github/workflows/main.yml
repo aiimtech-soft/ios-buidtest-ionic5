@@ -45,7 +45,7 @@ jobs:
         run: |
           exec .github/scripts/import-profile.sh
         
-      -name: Copy Scripts
+      - name: Copy Scripts
         run: |
           cp -R .github/scripts/set-env-from-xcodeproj.sh /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/
 
