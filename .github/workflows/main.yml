@@ -22,9 +22,9 @@ jobs:
           echo ${{ env.RELEASE_VERSION }}
       
       - name: Install Node.js, NPM
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: 12
+          node-version: 14
         
       - name: Install Cordova, Cordova-res, Ionic CLI
         run: npm install -g cordova cordova-res @ionic/cli
@@ -34,6 +34,7 @@ jobs:
       
       - name: Import signing certificate
         env:
+          PROJECT_PATH: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/
           SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
           SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
         run: |
@@ -47,12 +48,12 @@ jobs:
         
       - name: Copy Scripts
         run: |
-          cp -R .github/scripts/set-env-from-xcodeproj.sh /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/
+          cp -R .github/scripts/set-env-from-xcodeproj.sh ${{ env.PROJECT_PATH }}
 
       - name: Set environment variables from project settings
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-        working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/
+        working-directory: ${{ env.PROJECT_PATH }}
         run: |
           exec ./set-env-from-xcodeproj.sh
   
