@@ -8,7 +8,7 @@
         },
         "release": {
             "developmentTeam": "36P9QGDZM3",
-            "codeSignIdentity": "Apple Distribution: Kodee P (36P9QGDZM3)",
+            "codeSignIdentity": "iPhone Distribution: Kodee P (36P9QGDZM3)",
             "provisioningProfile": "be0af605-dc1a-43d9-807e-c379f9960536",
             "packageType": "app-store"
         }
