@@ -60,6 +60,7 @@ jobs:
           exec ./set-env-from-xcodeproj.sh
   
       - name: Build app
+        working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/
         run: |
           fastlane run build_app
 
