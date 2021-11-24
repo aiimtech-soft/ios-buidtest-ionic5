@@ -36,7 +36,7 @@ jobs:
         run: npm i @angular-devkit/architect
 
       - name: Set environment variables from project settings
-        working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/
+        working-directory: /Users/apple/Documents/ios_workflow/ios-buidtest-ionic5/
         run: |
           exec .github/scripts/set-env-from-xcodeproj.sh
 
