@@ -5,7 +5,6 @@ on:
     tags: v0.*
 
 jobs:
-
   build:
     name: Build and Test IOS App
     runs-on: macos-latest
@@ -33,36 +32,20 @@ jobs:
         
       - name: Add platform
         run: ionic cordova platform add ios
-      
-      - name: Import signing certificate
-        env:
-          PROJECT_PATH: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/
-          SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
-          SIGNING_CERTIFICATE_PASSWORD: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
-        run: |
-          exec .github/scripts/import-certificate.sh
-          echo ${{ env.PROJECT_PATH }}
 
-      - name: Import provisioning profile
-        env:
-          PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_DATA }}
-        run: |
-          exec .github/scripts/import-profile.sh
-        
-      - name: Copy Scripts
-        run: cp .github/scripts/set-env-from-xcodeproj.sh /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/
-
-      - name: Set environment variables from project settings
-        env:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-        working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/
-        run: |
-          exec ./set-env-from-xcodeproj.sh
-  
       - name: Build app
-        working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/
-        run: |
-          fastlane run build_app
+        uses: yukiarrr/ios-build-action@v1.4.0
+        with:
+          project-path: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/ios-test.xcodeproj
+          p12-base64: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
+          mobileprovision-base64: ${{ secrets.PROVISIONING_PROFILE_DATA }}
+          code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
+          team-id: ${{ secrets.TEAM_ID }}
+          configuration: "Debug"
+          certificate-password: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
+          export-method: "development"
+          workspace-path: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/ios-test.xcworkspace
+          output-path: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/outputs/ios_build_test.ipa
 
       - name: Upload to Diawi        
         uses: rnkdsh/action-upload-diawi@v1.2.1
