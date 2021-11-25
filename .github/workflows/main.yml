@@ -50,5 +50,5 @@ jobs:
       - name: Upload to Diawi        
         uses: rnkdsh/action-upload-diawi@v1.2.1
         with:
-          token: ${{ secrets.DIAWI_API_TOKEN }}
+          token: "58MNqgV7oTpX4tcOWHcqg9fc40zhRqs6OKvncMzQUm"
           file: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/outputs/ios_build_test.ipa
