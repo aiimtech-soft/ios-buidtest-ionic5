@@ -7,47 +7,47 @@ on:
 jobs:
   build:
     name: Build and Test IOS App
-      runs-on: macos-latest
-      steps:
-        - name: Check out Git repository
-          uses: actions/checkout@v2
+    runs-on: macos-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
 
-        - name: Set env
-          run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-          env:
-            PROJECT_PATH: /Users/runner/work/${{ github.repository }}/${{ github.repository }}/platforms/ios/
+      - name: Set env
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+        env:
+          PROJECT_PATH: /Users/runner/work/${{ github.repository }}/${{ github.repository }}/platforms/ios/
 
-        - name: Test
-          run: |
-            echo $RELEASE_VERSION echo ${{ env.PROJECT_PATH }}
+      - name: Test
+        run: |
+          echo $RELEASE_VERSION echo ${{ env.PROJECT_PATH }}
 
-        - name: Install Cordova, Cordova-res, Ionic CLI
-          run: |
-            node -v npm install -g cordova cordova-res @ionic/cli
+      - name: Install Cordova, Cordova-res, Ionic CLI
+        run: |
+          node -v npm install -g cordova cordova-res @ionic/cli
 
-        - name: Add platform
-          run: ionic cordova platform add ios
+      - name: Add platform
+        run: ionic cordova platform add ios
 
-        - name: Copy Scripts
-          run: cp .github/scripts/set-env-from-xcodeproj.sh /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/
+      - name: Copy Scripts
+        run: cp .github/scripts/set-env-from-xcodeproj.sh /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/
 
-        - name: Set environment variables from project settings
-          env:
-            ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-          working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/
-          run: |
-            exec ./set-env-from-xcodeproj.sh
+      - name: Set environment variables from project settings
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+        working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios/
+        run: |
+          exec ./set-env-from-xcodeproj.sh
 
-        - name: Build app
-          uses: yukiarrr/ios-build-action@v1.4.0
-          with:
-            project-path: ${{ env.PROJECT_PATH }}${{ env.PRODUCT_NAME }}.xcodeproj
-            workspace-path: ${{ env.PROJECT_PATH }}${{ env.PRODUCT_NAME }}.xcworkspace
-            output-path: ${{ env.PROJECT_PATH }}outputs/${{ env.PRODUCT_NAME }}-${{env.RELEASE_VERSION}}.ipa
-            team-id: ${{ secrets.TEAM_ID }}
-            code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
-            p12-base64: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
-            certificate-password: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
-            mobileprovision-base64: ${{ secrets.PROVISIONING_PROFILE_DATA }}
-            configuration: "Debug"
-            export-method: "development"
+      - name: Build app
+        uses: yukiarrr/ios-build-action@v1.4.0
+        with:
+          project-path: ${{ env.PROJECT_PATH }}${{ env.PRODUCT_NAME }}.xcodeproj
+          workspace-path: ${{ env.PROJECT_PATH }}${{ env.PRODUCT_NAME }}.xcworkspace
+          output-path: ${{ env.PROJECT_PATH }}outputs/${{ env.PRODUCT_NAME }}-${{env.RELEASE_VERSION}}.ipa
+          team-id: ${{ secrets.TEAM_ID }}
+          code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
+          p12-base64: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
+          certificate-password: ${{ secrets.SIGNING_CERTIFICATE_PASSWORD }}
+          mobileprovision-base64: ${{ secrets.PROVISIONING_PROFILE_DATA }}
+          configuration: "Debug"
+          export-method: "development"
