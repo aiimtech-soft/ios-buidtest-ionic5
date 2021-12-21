@@ -29,6 +29,7 @@ jobs:
           project-path: ${{ env.PROJECT_PATH }}${{ secrets.PRODUCT_NAME }}.xcodeproj
           workspace-path: ${{ env.PROJECT_PATH }}${{ secrets.PRODUCT_NAME }}.xcworkspace
           output-path: ${{ env.PROJECT_PATH }}outputs/${{ secrets.PRODUCT_NAME }}-${{env.RELEASE_VERSION}}.ipa
+          scheme: ${{ secrets.PRODUCT_NAME }}
           team-id: ${{ secrets.TEAM_ID }}
           code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
           p12-base64: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
