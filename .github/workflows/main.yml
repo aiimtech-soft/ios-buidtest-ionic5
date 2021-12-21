@@ -21,7 +21,9 @@ jobs:
         run: npm install -g cordova cordova-res @ionic/cli
 
       - name: Add platform
-        run: ionic cordova platform add ios
+        run: |
+          pod setup
+          ionic cordova platform add ios
 
       - name: Build app
         uses: yukiarrr/ios-build-action@v1.4.0
