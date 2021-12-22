@@ -23,6 +23,10 @@ jobs:
       - name: Add platform
         run: ionic cordova platform add ios
 
+      - name: manual Pods
+        working-directory: /Users/runner/work/mediquince-app/mediquince-app/platforms/ios
+        run: pod install
+
       - name: Build app
         uses: yukiarrr/ios-build-action@v1.4.0
         with:
