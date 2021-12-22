@@ -25,7 +25,10 @@ jobs:
 
       - name: manual Pods
         working-directory: /Users/runner/work/mediquince-app/mediquince-app/platforms/ios
-        run: pod install
+        run: |
+          ls -a
+          pod init
+          pod install
 
       - name: Build app
         uses: yukiarrr/ios-build-action@v1.4.0
