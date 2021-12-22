@@ -24,10 +24,9 @@ jobs:
         run: ionic cordova platform add ios
 
       - name: manual Pods
-        working-directory: /Users/runner/work/mediquince-app/mediquince-app/platforms/ios
+        working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios
         run: |
           ls -a
-          pod init
           pod install
 
       - name: Build app
