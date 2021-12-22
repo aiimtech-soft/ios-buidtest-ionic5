@@ -23,10 +23,6 @@ jobs:
       - name: Add platform
         run: ionic cordova platform add ios
 
-      - name: Move to ios folder and install pod
-        working-directory: /Users/runner/work/ios-buidtest-ionic5/ios-buidtest-ionic5/platforms/ios
-        run: pod install
-
       - name: Build app
         uses: yukiarrr/ios-build-action@v1.4.0
         with:
